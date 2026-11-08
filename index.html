@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="id">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Kampus Lost &mdash; Sistem Informasi Barang Hilang &amp; Ditemukan
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <!-- =====================================================
+
+       01 — BERANDA
+
+  ====================================================== -->
+  <section class="page" id="beranda">
+   <header>
+    <nav class="nav">
+     <a class="logo" href="#beranda">
+      Kampus Lost
+     </a>
+     <div class="nav-links">
+      <a href="#cari">
+       Cari Barang
+      </a>
+      <a href="#lapor">
+       Lapor Barang
+      </a>
+      <a class="profile-btn" href="#profil">
+       Profil
+      </a>
+     </div>
+    </nav>
+   </header>
+   <main class="content">
+    <div class="container">
+     <div class="hero">
+      <div class="hero-text">
+       <h1>
+        Temukan kembali barangmu di kampus.
+       </h1>
+       <p>
+        Kampus Lost membantu mahasiswa mencari barang hilang
+
+              dan melaporkan barang yang ditemukan di lingkungan kampus.
+       </p>
+       <div class="actions">
+        <a class="btn" href="#cari">
+         Cari Barang
+        </a>
+        <a class="btn secondary" href="#lapor">
+         Lapor Barang
+        </a>
+       </div>
+      </div>
+      <div class="hero-box">
+       <span>
+        Ilustrasi Lost &amp; Found
+       </span>
+      </div>
+     </div>
+     <div class="feature-grid">
+      <div class="feature-card">
+       <h2 class="feature-title">
+        Cari Barang
+       </h2>
+       <p>
+        Gunakan filter untuk menemukan barang hilang
+
+              atau barang yang sudah ditemukan.
+       </p>
+      </div>
+      <div class="feature-card">
+       <h2 class="feature-title">
+        Lapor Barang
+       </h2>
+       <p>
+        Laporkan barang hilang atau barang ditemukan
+
+              melalui satu formulir sederhana.
+       </p>
+      </div>
+      <div class="feature-card">
+       <h2 class="feature-title">
+        Riwayat Laporan
+       </h2>
+       <p>
+        Pantau laporan yang pernah kamu buat
+
+              melalui halaman profil.
+       </p>
+      </div>
+     </div>
+    </div>
+   </main>
+   <footer>
+    <div class="container">
+     Kampus Lost &mdash; Sistem informasi barang hilang dan ditemukan di kampus.
+    </div>
+   </footer>
+  </section>
+  <!-- =====================================================
+
+       02 — CARI BARANG
+
+  ====================================================== -->
+  <section class="page" id="cari">
+   <header>
+    <nav class="nav">
+     <a class="logo" href="#beranda">
+      Kampus Lost
+     </a>
+     <div class="nav-links">
+      <a href="#cari">
+       Cari Barang
+      </a>
+      <a href="#lapor">
+       Lapor Barang
+      </a>
+      <a class="profile-btn" href="#profil">
+       Profil
+      </a>
+     </div>
+    </nav>
+   </header>
+   <main class="content">
+    <div class="container">
+     <h2 class="page-title">
+      Cari Barang
+     </h2>
+     <p>
+      Gunakan filter untuk menemukan barang yang hilang
+
+          atau sudah ditemukan di lingkungan kampus.
+     </p>
+     <div class="search-layout">
+      <aside class="filter-panel">
+       <h3>
+        Filter
+       </h3>
+       <div class="filter-group">
+        <label for="filterStatus">
+         Status
+        </label>
+        <select id="filterStatus">
+         <option value="all">
+          Semua Status
+         </option>
+         <option value="Hilang">
+          Barang Hilang
+         </option>
+         <option value="Ditemukan">
+          Barang Ditemukan
+         </option>
+        </select>
+       </div>
+       <div class="filter-group">
+        <label for="filterCategory">
+         Kategori
+        </label>
+        <select id="filterCategory">
+         <option value="all">
+          Semua Kategori
+         </option>
+         <option>
+          Elektronik
+         </option>
+         <option>
+          Aksesori
+         </option>
+         <option>
+          Dokumen
+         </option>
+         <option>
+          Barang Pribadi
+         </option>
+        </select>
+       </div>
+       <div class="filter-group">
+        <label for="filterLocation">
+         Lokasi
+        </label>
+        <select id="filterLocation">
+         <option value="all">
+          Semua Lokasi
+         </option>
+         <option>
+          Gedung A
+         </option>
+         <option>
+          Gedung B
+         </option>
+         <option>
+          Perpustakaan
+         </option>
+         <option>
+          Kantin
+         </option>
+         <option>
+          Lapangan
+         </option>
+        </select>
+       </div>
+       <div class="filter-group">
+        <label for="filterTime">
+         Waktu
+        </label>
+        <select id="filterTime">
+         <option value="all">
+          Semua Waktu
+         </option>
+         <option>
+          Hari ini
+         </option>
+         <option>
+          7 hari terakhir
+         </option>
+         <option>
+          30 hari terakhir
+         </option>
+        </select>
+       </div>
+       <button class="btn full" id="applyFilters" type="button">
+        Terapkan Filter
+       </button>
+      </aside>
+      <section>
+       <div class="results-header">
+        <div>
+         <h2 class="page-title">
+          Barang Terbaru
+         </h2>
+         <p>
+          Menampilkan barang yang sesuai dengan filter.
+         </p>
+        </div>
+        <span class="muted" id="resultCount">
+         4 hasil
+        </span>
+       </div>
+       <div class="result-grid">
+        <a class="item-card" data-category="Aksesori" data-location="Perpustakaan" data-name="Dompet Hitam" data-status="Hilang" href="#detail">
+         <div class="item-image">
+          Foto Barang
+         </div>
+         <div class="item-info">
+          <h3>
+           Dompet Hitam
+          </h3>
+          <div class="item-meta">
+           <span class="tag">
+            Hilang
+           </span>
+           <span class="tag">
+            Aksesori
+           </span>
+          </div>
+          <p>
+           Terakhir terlihat di Perpustakaan.
+          </p>
+         </div>
+        </a>
+        <a class="item-card" data-category="Barang Pribadi" data-location="Kantin" data-name="Botol Minum" data-status="Ditemukan" href="#detail">
+         <div class="item-image">
+          Foto Barang
+         </div>
+         <div class="item-info">
+          <h3>
+           Botol Minum
+          </h3>
+          <div class="item-meta">
+           <span class="tag">
+            Ditemukan
+           </span>
+           <span class="tag">
+            Barang Pribadi
+           </span>
+          </div>
+          <p>
+           Ditemukan di area kantin kampus.
+          </p>
+         </div>
+        </a>
+        <a class="item-card" data-category="Elektronik" data-location="Gedung A" data-name="Flashdisk" data-status="Hilang" href="#detail">
+         <div class="item-image">
+          Foto Barang
+         </div>
+         <div class="item-info">
+          <h3>
+           Flashdisk
+          </h3>
+          <div class="item-meta">
+           <span class="tag">
+            Hilang
+           </span>
+           <span class="tag">
+            Elektronik
+           </span>
+          </div>
+          <p>
+           Terakhir digunakan di Gedung A.
+          </p>
+         </div>
+        </a>
+        <a class="item-card" data-category="Dokumen" data-location="Gedung B" data-name="Kartu Mahasiswa" data-status="Ditemukan" href="#detail">
+         <div class="item-image">
+          Foto Barang
+         </div>
+         <div class="item-info">
+          <h3>
+           Kartu Mahasiswa
+          </h3>
+          <div class="item-meta">
+           <span class="tag">
+            Ditemukan
+           </span>
+           <span class="tag">
+            Dokumen
+           </span>
+          </div>
+          <p>
+           Ditemukan di sekitar Gedung B.
+          </p>
+         </div>
+        </a>
+       </div>
+      </section>
+     </div>
+    </div>
+   </main>
+  </section>
+  <!-- =====================================================
+
+       03 — DETAIL BARANG
+
+  ====================================================== -->
+  <section class="page" id="detail">
+   <header>
+    <nav class="nav">
+     <a class="logo" href="#beranda">
+      Kampus Lost
+     </a>
+     <div class="nav-links">
+      <a href="#cari">
+       Cari Barang
+      </a>
+      <a href="#lapor">
+       Lapor Barang
+      </a>
+      <a class="profile-btn" href="#profil">
+       Profil
+      </a>
+     </div>
+    </nav>
+   </header>
+   <main class="content">
+    <div class="container">
+     <a class="muted" href="#cari">
+      &larr; Kembali ke pencarian
+     </a>
+     <div class="detail-layout">
+      <div class="detail-image">
+       Foto Barang
+      </div>
+      <div class="detail-info">
+       <span class="tag" id="detailStatus">
+        Barang Hilang
+       </span>
+       <h2 class="page-title detail-title" id="detailName">
+        Dompet Hitam
+       </h2>
+       <p>
+        Dompet berwarna hitam dengan ukuran kecil.
+
+              Memiliki beberapa kartu di dalamnya.
+       </p>
+       <div class="detail-row">
+        <div class="detail-label">
+         Kategori
+        </div>
+        <strong id="detailCategory">
+         Aksesori
+        </strong>
+       </div>
+       <div class="detail-row">
+        <div class="detail-label">
+         Lokasi terakhir
+        </div>
+        <strong id="detailLocation">
+         Perpustakaan Kampus
+        </strong>
+       </div>
+       <div class="detail-row">
+        <div class="detail-label">
+         Tanggal
+        </div>
+        <strong id="detailDate">
+         24 Oktober 2026
+        </strong>
+       </div>
+       <div class="detail-row">
+        <div class="detail-label">
+         Waktu
+        </div>
+        <strong id="detailTime">
+         14.30 WIB
+        </strong>
+       </div>
+       <div class="actions">
+        <a class="btn" href="#klaim">
+         Ajukan Klaim
+        </a>
+        <a class="btn secondary" href="#cari">
+         Kembali
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+   </main>
+  </section>
+  <!-- =====================================================
+
+       04 — AJUKAN KLAIM
+
+  ====================================================== -->
+  <section class="page" id="klaim">
+   <header>
+    <nav class="nav">
+     <a class="logo" href="#beranda">
+      Kampus Lost
+     </a>
+     <div class="nav-links">
+      <a href="#cari">
+       Cari Barang
+      </a>
+      <a href="#lapor">
+       Lapor Barang
+      </a>
+      <a class="profile-btn" href="#profil">
+       Profil
+      </a>
+     </div>
+    </nav>
+   </header>
+   <main class="content">
+    <div class="container">
+     <div class="form-container">
+      <a class="muted" href="#detail">
+       &larr; Kembali ke detail barang
+      </a>
+      <h2 class="page-title claim-title">
+       Ajukan Klaim
+      </h2>
+      <p>
+       Jelaskan informasi yang dapat membantu
+
+            memverifikasi bahwa barang tersebut milikmu.
+      </p>
+      <div class="form-card form-card-spaced">
+       <div class="form-group">
+        <label for="claimName">
+         Nama
+        </label>
+        <input id="claimName" placeholder="Masukkan nama lengkap" type="text"/>
+       </div>
+       <div class="form-group">
+        <label for="claimNim">
+         Nomor Mahasiswa
+        </label>
+        <input id="claimNim" placeholder="Masukkan NIM" type="text"/>
+       </div>
+       <div class="form-group">
+        <label for="claimDescription">
+         Deskripsi kepemilikan
+        </label>
+        <textarea id="claimDescription" placeholder="Jelaskan ciri khusus atau informasi yang membuktikan kepemilikan barang..."></textarea>
+       </div>
+       <div class="form-group">
+        <label for="claimAdditional">
+         Informasi tambahan
+        </label>
+        <textarea id="claimAdditional" placeholder="Informasi lain yang ingin disampaikan..."></textarea>
+       </div>
+       <button class="btn full" id="submitClaim" type="button">
+        Kirim Klaim
+       </button>
+      </div>
+     </div>
+    </div>
+   </main>
+  </section>
+  <!-- =====================================================
+
+       05 — LAPOR BARANG
+
+  ====================================================== -->
+  <section class="page" id="lapor">
+   <header>
+    <nav class="nav">
+     <a class="logo" href="#beranda">
+      Kampus Lost
+     </a>
+     <div class="nav-links">
+      <a href="#cari">
+       Cari Barang
+      </a>
+      <a href="#lapor">
+       Lapor Barang
+      </a>
+      <a class="profile-btn" href="#profil">
+       Profil
+      </a>
+     </div>
+    </nav>
+   </header>
+   <main class="content">
+    <div class="container">
+     <div class="form-container">
+      <h2 class="page-title">
+       Lapor Barang
+      </h2>
+      <p>
+       Isi informasi barang yang hilang atau ditemukan
+
+            di lingkungan kampus.
+      </p>
+      <div class="form-card form-card-spaced">
+       <div class="form-group">
+        <label>
+         Jenis Laporan
+        </label>
+        <div class="radio-group">
+         <label class="radio-option">
+          <input checked="" id="reportType1" name="jenis" type="radio"/>
+          Barang Hilang
+         </label>
+         <label class="radio-option">
+          <input id="reportType2" name="jenis" type="radio"/>
+          Barang Ditemukan
+         </label>
+        </div>
+       </div>
+       <div class="form-group">
+        <label for="reportName">
+         Nama Barang
+        </label>
+        <input id="reportName" placeholder="Contoh: Dompet hitam" type="text"/>
+       </div>
+       <div class="form-group">
+        <label for="reportCategory">
+         Kategori
+        </label>
+        <select id="reportCategory">
+         <option>
+          Pilih kategori
+         </option>
+         <option>
+          Elektronik
+         </option>
+         <option>
+          Aksesori
+         </option>
+         <option>
+          Dokumen
+         </option>
+         <option>
+          Barang Pribadi
+         </option>
+         <option>
+          Lainnya
+         </option>
+        </select>
+       </div>
+       <div class="form-group">
+        <label for="reportLocation">
+         Lokasi
+        </label>
+        <select id="reportLocation">
+         <option>
+          Pilih lokasi
+         </option>
+         <option>
+          Gedung A
+         </option>
+         <option>
+          Gedung B
+         </option>
+         <option>
+          Perpustakaan
+         </option>
+         <option>
+          Kantin
+         </option>
+         <option>
+          Lapangan
+         </option>
+        </select>
+       </div>
+       <div class="form-date-grid">
+        <div class="form-group">
+         <label for="reportDate">
+          Tanggal
+         </label>
+         <input id="reportDate" type="date"/>
+        </div>
+        <div class="form-group">
+         <label for="reportTime">
+          Waktu
+         </label>
+         <input id="reportTime" type="time"/>
+        </div>
+       </div>
+       <div class="form-group">
+        <label for="reportDescription">
+         Deskripsi
+        </label>
+        <textarea id="reportDescription" placeholder="Jelaskan ciri, kondisi, atau informasi tambahan tentang barang..."></textarea>
+       </div>
+       <div class="form-group">
+        <label for="reportPhoto">
+         Foto Barang
+        </label>
+        <input id="reportPhoto" type="file"/>
+        <p class="form-help">
+         Opsional. Format JPG atau PNG.
+        </p>
+       </div>
+       <button class="btn full" id="submitReport" type="button">
+        Kirim Laporan
+       </button>
+      </div>
+     </div>
+    </div>
+   </main>
+  </section>
+  <!-- =====================================================
+
+       06 — KONFIRMASI
+
+  ====================================================== -->
+  <section class="page" id="konfirmasi">
+   <header>
+    <nav class="nav">
+     <a class="logo" href="#beranda">
+      Kampus Lost
+     </a>
+     <div class="nav-links">
+      <a href="#cari">
+       Cari Barang
+      </a>
+      <a href="#lapor">
+       Lapor Barang
+      </a>
+      <a class="profile-btn" href="#profil">
+       Profil
+      </a>
+     </div>
+    </nav>
+   </header>
+   <main class="content">
+    <div class="container">
+     <div class="confirmation">
+      <div class="success-icon">
+       &checkmark;
+      </div>
+      <h2 class="page-title" id="confirmationTitle">
+       Laporan Berhasil Dikirim
+      </h2>
+      <p>
+       <span id="confirmationMessage">
+        Laporanmu sudah berhasil disimpan. Kamu dapat melihat status laporan melalui halaman profil.
+       </span>
+      </p>
+      <div class="actions actions-centered">
+       <a class="btn" href="#profil">
+        Lihat Profil
+       </a>
+       <a class="btn secondary" href="#beranda">
+        Kembali ke Beranda
+       </a>
+      </div>
+     </div>
+    </div>
+   </main>
+  </section>
+  <!-- =====================================================
+
+       07 — PROFIL
+
+  ====================================================== -->
+  <section class="page" id="profil">
+   <header>
+    <nav class="nav">
+     <a class="logo" href="#beranda">
+      Kampus Lost
+     </a>
+     <div class="nav-links">
+      <a href="#cari">
+       Cari Barang
+      </a>
+      <a href="#lapor">
+       Lapor Barang
+      </a>
+      <a class="profile-btn" href="#profil">
+       Profil
+      </a>
+     </div>
+    </nav>
+   </header>
+   <main class="content">
+    <div class="container">
+     <h2 class="page-title">
+      Profil
+     </h2>
+     <p>
+      Kelola akun dan lihat riwayat laporanmu.
+     </p>
+     <div class="profile-layout">
+      <aside class="profile-card">
+       <div class="avatar">
+        Foto
+       </div>
+       <h3 id="profileName">
+        Fahri
+       </h3>
+       <p>
+        Mahasiswa
+       </p>
+       <div class="actions profile-actions">
+        <a class="btn secondary" href="#profil">
+         Riwayat Laporan
+        </a>
+        <a class="btn secondary" href="#profil">
+         Pengaturan
+        </a>
+       </div>
+      </aside>
+      <section>
+       <h2 class="page-title">
+        Riwayat Laporan
+       </h2>
+       <div class="history-list" id="historyList">
+        <div class="history-item">
+         <div>
+          <h3>
+           Dompet Hitam
+          </h3>
+          <p>
+           Laporan barang hilang
+          </p>
+         </div>
+         <span class="tag">
+          Diproses
+         </span>
+        </div>
+        <div class="history-item">
+         <div>
+          <h3>
+           Botol Minum
+          </h3>
+          <p>
+           Laporan barang ditemukan
+          </p>
+         </div>
+         <span class="tag">
+          Selesai
+         </span>
+        </div>
+        <div class="history-item">
+         <div>
+          <h3>
+           Flashdisk
+          </h3>
+          <p>
+           Laporan barang hilang
+          </p>
+         </div>
+         <span class="tag">
+          Diproses
+         </span>
+        </div>
+       </div>
+      </section>
+     </div>
+    </div>
+   </main>
+  </section>
+  <!-- =====================================================
+
+       FLOW PROTOTYPE
+
+  ====================================================== -->
+  <section class="page" id="flow">
+   <header>
+    <nav class="nav">
+     <a class="logo" href="#beranda">
+      Kampus Lost
+     </a>
+    </nav>
+   </header>
+   <main class="content">
+    <div class="container">
+     <h2 class="page-title">
+      Prototype Flow
+     </h2>
+     <p>
+      Alur utama prototype Kampus Lost versi MVP.
+     </p>
+     <div class="flow">
+      <a class="flow-box" href="#beranda">
+       Beranda
+      </a>
+      <span class="arrow">
+       &rarr;
+      </span>
+      <a class="flow-box" href="#cari">
+       Cari Barang
+      </a>
+      <span class="arrow">
+       &rarr;
+      </span>
+      <a class="flow-box" href="#detail">
+       Detail Barang
+      </a>
+      <span class="arrow">
+       &rarr;
+      </span>
+      <a class="flow-box" href="#klaim">
+       Ajukan Klaim
+      </a>
+     </div>
+     <div class="flow flow-spaced">
+      <a class="flow-box" href="#beranda">
+       Beranda
+      </a>
+      <span class="arrow">
+       &rarr;
+      </span>
+      <a class="flow-box" href="#lapor">
+       Lapor Barang
+      </a>
+      <span class="arrow">
+       &rarr;
+      </span>
+      <a class="flow-box" href="#konfirmasi">
+       Konfirmasi
+      </a>
+     </div>
+     <div class="flow flow-spaced">
+      <a class="flow-box" href="#beranda">
+       Beranda
+      </a>
+      <span class="arrow">
+       &rarr;
+      </span>
+      <a class="flow-box" href="#profil">
+       Profil
+      </a>
+     </div>
+    </div>
+   </main>
+  </section>
+  <script defer="" src="script.js">
+  </script>
+ </body>
+</html>
+ini desainnya udah gw taro di figma, bikinin javascript flow buat prototype biar gw copy paste aja di scripter plugin figma
